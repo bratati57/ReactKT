@@ -22,7 +22,7 @@ function FetchingData() {
 //   console.log(users);
   return (
     <div>
-      Hello User!
+      <h2>The User List is:-</h2>
       <ul>
         {users.map((usr) => {
           return <li key={usr.id}>{usr.name}</li>;

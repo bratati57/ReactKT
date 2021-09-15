@@ -3,14 +3,52 @@ import "./App.css";
 import { Component } from "react";
 import IterateList from "./components/MyForm/IterateList";
 import FetchingData from "./components/FetchingData";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Home from "./components/Home";
+import Contact from "./components/Contact";
+import Welcome from "./components/Welcome";
 export default class App extends Component {
   // state(){}
   render() {
     return (
       <>
-      {/* <IterateList/> */}
-      <FetchingData/>
-    
+        {/* <IterateList/> */}
+        <Router>
+          <div>
+            <nav>
+              <ul>
+                <Link to="/">Welcome User</Link>
+                <li>
+                  <Link to="/home">Home</Link>
+                </li>
+                <li>
+                  <Link to="/userList">User List</Link>
+                </li>
+                <li>
+                  <Link to="/contact">Contact Us</Link>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div>
+            <Switch>
+              {/* <Route path="/home">
+                <Home />
+              </Route> */}
+              <Route path="/home" component={Home}/>
+              <Route path="/userList">
+                <FetchingData />
+              </Route>
+              <Route path="/contact">
+                <Contact />
+              </Route>
+              <Route path="/">
+                <Welcome />
+              </Route>
+              
+            </Switch>
+          </div>
+        </Router>
       </>
     );
   }
